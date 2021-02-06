@@ -15,6 +15,7 @@ SELECT * FROM Customers WHERE Country = 'UK';
 
 Answer:
 | CustomerID | CustomerName | ContactName | Address | City | PostalCode | Country |
+| ---------- |:------------:| -----------:|:-------:|:----:|:----------:|:-------:|
 | 4 | Around the Horn | Thomas Hardy | 120 Hanover Sq. | London | WA1 1DP | UK |
 | 11 | B's Beverages | Victoria Ashworth | Fauntleroy Circus | London | EC2 5NT | UK |
 | 16 | Consolidated Holdings | Elizabeth Brown | Berkeley Gardens 12 Brewery | London | WX1 6LT | UK |
@@ -159,6 +160,7 @@ WHERE Notes LIKE '%BS%';
 
 Answer:
 | EmployeeID | LastName | FirstName |
+| ---------- |:--------:| ---------:|
 | 3 | Leverling | Janet |
 | 5 | Buchanan | Steven |
 
