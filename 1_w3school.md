@@ -44,7 +44,8 @@ LIMIT 1;
 Answer:
 Ernst Handel is the customer with the most orders
 
-
+<br>
+<br>
 
 3. Which supplier has the highest average product price?
 
@@ -61,7 +62,8 @@ LIMIT 1;
 Answer:
 Aux joyeux ecclésiastiques has the highest average product price of 140.75
 
-
+<br>
+<br>
 
 4. How many different countries are all the customers from? (*Hint:* consider [DISTINCT](http://www.w3schools.com/sql/sql_distinct.asp).)
 
@@ -73,7 +75,8 @@ SELECT COUNT(DISTINCT Country) as Num_of_Countries FROM Customers;
 Answer:
 The customers are from 21 different countries.
 
-
+<br>
+<br>
 
 5. What category appears in the most orders?
 
@@ -97,7 +100,8 @@ LIMIT 1;
 Answer:
 Beverages appears in the most orders with 80 total.
 
-
+<br>
+<br>
 
 6. What was the total cost for each order?
 
@@ -124,7 +128,8 @@ Here are the first few rows:
 | 10251 | 839.5 |
 | 10252 | 4662.5 |
 
-
+<br>
+<br>
 
 7. Which employee made the most sales (by total price)?
 
@@ -150,7 +155,8 @@ LIMIT 1;
 Answer:
 Margaret Peacock had the highest total sales with 105696.50
 
-
+<br>
+<br>
 
 8. Which employees have BS degrees? (*Hint:* look at the [LIKE](http://www.w3schools.com/sql/sql_like.asp) operator.)
 
@@ -169,7 +175,8 @@ Answer:
 
 Steven Buchanan has a BSC degree rather than a BS degree but since it is also a bachelor of science I included it.
 
-
+<br>
+<br>
 
 9. Which supplier of three or more products has the highest average product price? (*Hint:* look at the [HAVING](http://www.w3schools.com/sql/sql_having.asp) operator.)
 
