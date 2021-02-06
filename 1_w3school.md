@@ -13,7 +13,6 @@ Query:
 SELECT * FROM Customers WHERE Country = 'UK';
 ```
 
-
 Answer:
 | CustomerID | CustomerName | ContactName | Address | City | PostalCode | Country |
 | 4 | Around the Horn | Thomas Hardy | 120 Hanover Sq. | London | WA1 1DP | UK |
@@ -38,7 +37,6 @@ ORDER BY COUNT(*) DESC
 LIMIT 1;
 ```
 
-
 Answer:
 Ernst Handel is the customer with the most orders
 
@@ -56,7 +54,6 @@ ORDER BY AVG(PRICE) DESC
 LIMIT 1;
 ```
 
-
 Answer:
 Aux joyeux ecclésiastiques has the highest average product price of 140.75
 
@@ -68,7 +65,6 @@ Query:
 ``` sql
 SELECT COUNT(DISTINCT Country) as Num_of_Countries FROM Customers;
 ```
-
 
 Answer:
 The customers are from 21 different countries.
@@ -94,7 +90,6 @@ ORDER BY COUNT(DISTINCT OrderID) DESC
 LIMIT 1;
 ```
 
-
 Answer:
 Beverages appears in the most orders with 80 total.
 
@@ -115,36 +110,22 @@ FROM Ord_Items
 GROUP BY OrderID
 ```
 
-<<<<<<< HEAD
 Answer:
 Here are the first few rows:
 | OrderID | Total_Order_Price |
+| ------- |:-----------------:|
 | 10248 | 566 |
 | 10249 | 2329.25 |
 | 10250 | 2267.25 |
 | 10251 | 839.5 |
 | 10252 | 4662.5 |
-=======
-
-Answer:
-Here are the first few rows:
-OrderID	Total_Order_Price
-10248	566
-10249	2329.25
-10250	2267.25
-10251	839.5
-10252	4662.5
->>>>>>> 804a683d1ff5b245890457edb1f2547fac2ff409
 
 
 
 7. Which employee made the most sales (by total price)?
 
 Query:
-<<<<<<< HEAD
 ``` sql
-=======
->>>>>>> 804a683d1ff5b245890457edb1f2547fac2ff409
 WITH Ord_Items AS (
 SELECT OrderDetails.OrderID, Orders.EmployeeID, Employees.LastName, Employees.FirstName, (OrderDetails.Quantity * Products.Price) AS Item_Total
 FROM OrderDetails LEFT JOIN Products
@@ -160,11 +141,7 @@ FROM Ord_Items
 GROUP BY EmployeeID
 ORDER BY SUM(Item_Total) DESC
 LIMIT 1;
-<<<<<<< HEAD
 ```
-=======
-
->>>>>>> 804a683d1ff5b245890457edb1f2547fac2ff409
 
 Answer:
 Margaret Peacock had the highest total sales with 105696.50
@@ -179,7 +156,6 @@ SELECT EmployeeID, LastName, FirstName
 FROM Employees
 WHERE Notes LIKE '%BS%';
 ```
-
 
 Answer:
 | EmployeeID | LastName | FirstName |
@@ -202,7 +178,6 @@ HAVING COUNT(ProductID) >= 3
 ORDER BY AVG(PRICE) DESC
 LIMIT 1;
 ```
-
 
 Answer:
 Tokyo Traders is the supplier with three or more products that has the highest average product price of 46.
