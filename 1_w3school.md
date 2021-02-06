@@ -6,6 +6,8 @@
 
 This challenge uses the [W3Schools SQL playground](http://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all). Please add solutions to this markdown file and submit.
 
+<br>
+
 1. Which customers are from the UK?
 
 Query:
@@ -24,7 +26,8 @@ Answer:
 | 53 | North/South | Simon Crowther | South House 300 Queensbridge | London | SW7 1RZ | UK |
 | 72 | Seven Seas Imports | Hari Kumar | 90 Wadhurst Rd. | London | OX15 4NB | UK |
 
-
+<br>
+<br>
 
 2. What is the name of the customer who has the most orders?
 
