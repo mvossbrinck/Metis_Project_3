@@ -99,7 +99,7 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
     GROUP BY Tournament, Player;
     ```
    
-   
+ <br>  
 
 2. Who has played the most matches total in all of US Open, AUST Open, 
    French Open? Answer this both for men and women.
@@ -193,10 +193,103 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
 
     Answer: Roger Nadal, with 21, and Victoria Azarenka, with 18, played the most matches. 
 
-
+<br>
 
 3. Who has the highest first serve percentage? (Just the maximum value
    in a single match.)
+
+   ```sql
+   WITH tour AS (
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM aus_men
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM aus_men
+    
+    UNION ALL 
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM aus_women
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM aus_women
+    
+    UNION ALL
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM french_men
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM french_men
+    
+    UNION ALL 
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM french_women
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM french_women
+    
+    UNION ALL
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM us_men
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM us_men
+    
+    UNION ALL 
+    
+    SELECT "Player 1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM us_women
+    
+    UNION ALL 
+    
+    SELECT "Player 2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM us_women
+    
+    UNION ALL
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM wimbledon_men
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM wimbledon_men
+    
+    UNION ALL 
+    
+    SELECT "Player1" AS Player, "FSP.1" AS First_Serve_Percentage
+    FROM wimbledon_women
+    
+    UNION ALL 
+    
+    SELECT "Player2" AS Player, "FSP.2" AS First_Serve_Percentage
+    FROM wimbledon_women
+
+    )
+
+    SELECT DISTINCT tour.Player, First_Serve_Percentage
+    FROM tour
+    INNER JOIN 
+    (SELECT Player, MAX(First_Serve_Percentage) OVER () AS Max_FSP
+    FROM tour) maxFSP
+    ON tour.First_Serve_Percentage = maxFSP.Max_FSP
+    ;
+    ```
+
+<br>
 
 4. What are the unforced error percentages of the top three players
    with the most wins? (Unforced error percentage is % of points lost
@@ -204,6 +297,8 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
    points won by each player, and number of unforced errors for each
    field.)
 
+
+<br>
 
 *Hint:* `SUM(double_faults)` sums the contents of an entire column. For each row, to add the field values from two columns, the syntax `SELECT name, double_faults + unforced_errors` can be used.
 
