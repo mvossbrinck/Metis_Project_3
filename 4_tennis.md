@@ -289,6 +289,8 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
     ;
     ```
 
+    Answer: S. Errani has the highest FSP - 93%
+
 <br>
 
 4. What are the unforced error percentages of the top three players
