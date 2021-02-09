@@ -298,6 +298,8 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
    due to unforced errors. In a match, you have fields for number of
    points won by each player, and number of unforced errors for each
    field.)
+   
+   UFE/(NPW + UFE)
 
 
 <br>
