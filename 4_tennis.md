@@ -300,7 +300,7 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
    field.)
 
 
-  ``` sql
+``` sql
    WITH win AS (
     SELECT 
     CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
@@ -429,7 +429,7 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
     GROUP BY FirstName, LastName
     ORDER BY Total_Wins DESC
     LIMIT 3;
-    ```
+```
     
 | firstname | lastname | total_wins | avg_unforced_error_percent |
 |:---------:|:--------:|:----------:|:--------------------------:|
