@@ -298,9 +298,147 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
    due to unforced errors. In a match, you have fields for number of
    points won by each player, and number of unforced errors for each
    field.)
-   
-   UFE/(NPW + UFE)
 
+
+  ``` sql
+   WITH win AS (
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM aus_men
+    
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM aus_women
+    
+    UNION ALL
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM french_men
+
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM french_women
+    
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM us_men
+    
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player 1", ' ', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player 2", ' ', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player 1", ' ', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player 2", ' ', 2)
+       END AS LastName, 
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM us_women
+    
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", '.', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", '.', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", '.', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", '.', 2)
+       END AS LastName,   
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM wimbledon_men
+    
+    UNION ALL 
+    
+    SELECT 
+    CASE WHEN "NPW.1" > "NPW.2" THEN LEFT(SPLIT_PART("Player1", '.', 1), 1)
+       WHEN "NPW.1" < "NPW.2" THEN LEFT(SPLIT_PART("Player2", '.', 1), 1)
+       END AS FirstName,
+    CASE WHEN "NPW.1" > "NPW.2" THEN SPLIT_PART("Player1", '.', 2)
+       WHEN "NPW.1" < "NPW.2" THEN SPLIT_PART("Player2", '.', 2)
+       END AS LastName,   
+    CASE WHEN "NPW.1" > "NPW.2" THEN "UFE.1"/("NPW.1" + "UFE.1")
+       WHEN "NPW.1" < "NPW.2" THEN "UFE.2"/("NPW.2" + "UFE.2")
+       END AS Unforced_Error_Percent,
+    1 AS Win_Count  
+    FROM wimbledon_women
+    )
+
+
+    SELECT FirstName, LastName, SUM(Win_Count) as Total_Wins, 
+    AVG(Unforced_Error_Percent) AS Avg_Unforced_Error_Percent
+    FROM win
+    WHERE LastName IS NOT NULL
+    GROUP BY FirstName, LastName
+    ORDER BY Total_Wins DESC
+    LIMIT 3;
+    ```
+    
+| firstname | lastname | total_wins | avg_unforced_error_percent |
+|:---------:|:--------:|:----------:|:--------------------------:|
+| N         | Li       |         20 |         0.4213532241457907 |
+| N         | Djokovic |         16 |        0.10493692909960851 |
+| V         | Azarenka |         16 |         0.4123520414540084 |
+
+
+Answer: N Li has an average unforced error percentage of 42.1%, N Djokovic has an average unforced error percentage of 10.5%, and V Azarenka has an average unforced error percentage of 41.2%
 
 <br>
 
