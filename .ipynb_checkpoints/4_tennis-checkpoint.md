@@ -430,7 +430,9 @@ This challenge uses only SQL queries. Please submit answers in a markdown file.
     ORDER BY Total_Wins DESC
     LIMIT 3;
 ```
-    
+
+<br>
+
 | firstname | lastname | total_wins | avg_unforced_error_percent |
 |:---------:|:--------:|:----------:|:--------------------------:|
 | N         | Li       |         20 |         0.4213532241457907 |
