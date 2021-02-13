@@ -29,8 +29,8 @@
 #### 2_Baseball.ipynb - Solution for second project starter set of SQL problems
 #### 3_Soccer.ipynb - Solution for third project starter set of SQL problems
 #### 4_tennis.md - Solution for fourth project starter set of SQL problems
-#### Data Set Cleaning and Filtering.ipynb - Pulling in data, filtering it, creating new variables, and exporting to CSV
-#### EDA.ipynb - Exploring missing containment data and exploring patterns and trends in final data set
+#### Data Set Cleaning and Filtering.ipynb - Pulls in data, filters it, creates new variables, and exports data sets to CSV
+#### EDA.ipynb - Explores missing containment data and explores patterns and trends in final data set
 #### Models, Results, and Predictions.ipynb - Main code with models, performance metrics, and predictions based off selected XGBoost model 
 &nbsp;
 
